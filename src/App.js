@@ -1,9 +1,10 @@
-import React, { Component } from 'react';
+import React, { Fragment,useEffect,useState} from 'react';
 import CardList from './components/Cards/CardList';
 import Scroll from './components/Scroll/Scroll';
 import Particles from 'react-particles-js';
 import Logo from './components/Logo/Logo';
 import { Button } from 'reactstrap';
+import axios from 'axios';
 import './App.css';
 
 const particleOptions = {
@@ -43,74 +44,80 @@ const particleOptions = {
   }
 }
 
-class App extends Component {
-  constructor() {
-    super()
-    this.state = {
-      memorials: [],
-      sortType: 'date'
+const App = () => {
+ 
+  const [memorials, setMemorials] = useState([]);
+  const [sortType, setSortType] = useState('date');
+
+   useEffect(() => {
+    const fetchData = async () => {
+        const res = await axios.get('https://dev.requiemapp.com/public/memorial/random')
+        setMemorials(res.data.data);      
     }
+    fetchData();
+  },[])
+
+  const sortByDateAscending = (memorials) => {
+      memorials.sort(compareValuesByDate);
   }
 
-  componentDidMount() {
-    fetch('https://dev.requiemapp.com/public/memorial/random')
-      .then(response=> response.json())
-      .then(res=>
-        this.setState({memorials:res.data}));    
+
+  const sortByLastName = (memorials) => {
+      memorials.sort(compareValuesByLastName)
   }
-
-    sortByDateAscending = (obj1,obj2) => {
-      let comparison = 0;
-      if(obj1.creationDate < obj2.creationDate) {
+  
+  const compareValuesByDate = (a,b) => {
+    let comparison = 0;
+      if(a.creationDate < b.creationDate) {
          comparison = -1;
-      } else if(obj1.creationDate > obj2.creationDate) {
-        comparison = 1;
-      }
-      return comparison;
-  }  
-
-  sortByLastName = (obj1,obj2) => {
-      let comparison = 0;
-      if(obj1.name.last < obj2.name.last) {
-         comparison = -1;
-      } else if(obj1.name.last > obj2.name.last) {
+      } else if(a.creationDate > b.creationDate) {
         comparison = 1;
       }
       return comparison;
   }
 
-  changeOrder = () => {
-     this.setState({sortType : 'lastName'})
+   const compareValuesByLastName = (a,b) => {
+    let comparison = 0;
+      if(a.name.last < b.name.last) {
+         comparison = -1;
+      } else if(a.name.last > b.name.last) {
+        comparison = 1;
+      }
+      return comparison;
+  } 
+
+  
+
+  const changeOrder = () => {
+     setSortType('lastName')
   }
 
-
-  render() {
-    const { memorials,sortType } = this.state;
-    if(sortType === 'date') {
-     memorials.sort(this.sortByDateAscending);
-    } else if(sortType === 'lastName') {
-     memorials.sort(this.sortByLastName);  
-    }
     return (
-    <div>  
+     <Fragment>    
     <Logo />
     <Particles className='particles' params={particleOptions} />
      { !memorials.length ?
+      <Fragment>
       <div className='tc'>
       <h1>Loading</h1>
-      </div> :
-      (
+      </div>
+      </Fragment> :
+      ( 
+        <Fragment>
+         {
+           sortType === 'date' ? sortByDateAscending(memorials) : sortByLastName(memorials)
+         }
         <div className='tc'>
           <h1 className='f1'>The Memorials</h1>
-          <Button className='ma2' color="primary" onClick={this.changeOrder}>Sort By Last Name</Button>{' '}
+          <Button className='ma2' color="primary" onClick={e=>changeOrder()}>Sort By Last Name</Button>{' '}
           <Scroll>
             <CardList memorials={memorials} />
           </Scroll>
         </div>
+        </Fragment>
       )}
-     </div>
+      </Fragment>
       );
-  }
 }
 
 export default App;

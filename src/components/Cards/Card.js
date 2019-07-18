@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{Fragment} from 'react';
 
 const Card = ({ creationDate, firstName, middleName, lastName }) => {
   if(!firstName){
@@ -11,6 +11,7 @@ const Card = ({ creationDate, firstName, middleName, lastName }) => {
   	lastName = ' '
   }
   return (
+    <Fragment>
     <span>
     <div className='tc grow bg-light-yellow br3 pa5 ma3 dib bw2 shadow-5'>
       <div>
@@ -19,6 +20,7 @@ const Card = ({ creationDate, firstName, middleName, lastName }) => {
       </div>
     </div>
     </span>
+    </Fragment>
   );
 }
 

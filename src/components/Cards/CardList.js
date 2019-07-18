@@ -1,9 +1,9 @@
-import React from 'react';
+import React,{Fragment} from 'react';
 import Card from './Card';
 
 const CardList = ({ memorials }) => {
   return (
-    <div>
+    <Fragment>
       {
         memorials.map((memorial, i) => {
           return (
@@ -17,7 +17,7 @@ const CardList = ({ memorials }) => {
           );
         })
       }
-    </div>
+    </Fragment>
   );
 }
 
