@@ -1,5 +1,3 @@
-**EVDY-TEST**
-
 # Getting Started #
 
 The application can be viewed here https://salty-savannah-97492.herokuapp.com
