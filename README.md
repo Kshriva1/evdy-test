@@ -16,6 +16,8 @@ To start the application:
 
 - All the memorials are sorted by creationDate. Each row below a certain row is a continuation from the upper row.
 
+- If the first, middle or last name is undefined then it has been replaced by a empty string.
+
 - If the button is pressed the sorting changes by the last name of the decedent.
 
 - The memorials are shown in a form a list of card components. A Scroll component has been added to the cards to make it Scrollable.
