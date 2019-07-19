@@ -14,10 +14,14 @@ To start the application:
 
 - All the memorials are sorted by creationDate. Each row below a certain row is a continuation from the upper row.
 
+- The request to the API is made in the redux action which is called in the useEffect hook in the App component. UseState hook is used to maintain the component level state.
+
+- This application uses tachyons which is a CSS toolkit and is fast, readable and completely responsive. It reduces the amount of CSS we write in our application and we can add styles in our components using just class names.
+
 - If the first, middle or last name is undefined then it has been replaced by a empty string.
 
 - If the button is pressed the sorting changes by the last name of the decedent.
 
-- The memorials are shown in a form a list of card components. A Scroll component has been added to the cards to make it Scrollable.
+- The memorials are shown in a form a list of card components. A Scroll component has been added to the cards to make it scrollable.
 
-- A Logo commponent has been added in the UI using Tilt package. The logo is tiltable if we hover over it.
+- A Logo commponent has been added in the UI using the react-tilt package. The logo is tiltable if we hover over it.
