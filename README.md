@@ -2,7 +2,7 @@
 
 # Getting Started #
 
-The application can be viewed here https://boiling-tundra-93571.herokuapp.com/
+The application can be viewed here
 
 To start the application:
 
@@ -22,4 +22,4 @@ To start the application:
 
 - The memorials are shown in a form a list of card components. A Scroll component has been added to the cards to make it Scrollable.
 
-- A Logo commponent has been added in the UI using TIlt package. The logo is tiltable if we hover over it.
+- A Logo commponent has been added in the UI using Tilt package. The logo is tiltable if we hover over it.
