@@ -2,7 +2,7 @@
 
 # Getting Started #
 
-The application can be viewed here
+The application can be viewed here https://salty-savannah-97492.herokuapp.com
 
 To start the application:
 
