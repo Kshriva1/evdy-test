@@ -2,13 +2,13 @@ import React,{Fragment} from 'react';
 
 const Card = ({ creationDate, firstName, middleName, lastName }) => {
   if(!firstName){
-  	firstName = ' '
+  	firstName = ''
   }
    if(!middleName){
-  	middleName = ' '
+  	middleName = ''
   }
    if(!lastName){
-  	lastName = ' '
+  	lastName = ''
   }
   return (
     <Fragment>
