@@ -4,7 +4,8 @@ import Scroll from './components/Scroll/Scroll';
 import Particles from 'react-particles-js';
 import Logo from './components/Logo/Logo';
 import { Button } from 'reactstrap';
-import axios from 'axios';
+import { connect } from 'react-redux';
+import { getData } from './actions/data';
 import './App.css';
 
 const particleOptions = {
@@ -44,18 +45,13 @@ const particleOptions = {
   }
 }
 
-const App = () => {
+const App = ({memorials,getData}) => {
  
-  const [memorials, setMemorials] = useState([]);
   const [sortType, setSortType] = useState('date');
 
    useEffect(() => {
-    const fetchData = async () => {
-        const res = await axios.get('https://dev.requiemapp.com/public/memorial/random')
-        setMemorials(res.data.data);      
-    }
-    fetchData();
-  },[])
+    getData();
+  },[getData])
 
   const sortByDateAscending = (memorials) => {
       memorials.sort(compareValuesByDate);
@@ -96,7 +92,12 @@ const App = () => {
      <Fragment>    
     <Logo />
     <Particles className='particles' params={particleOptions} />
-     { !memorials.length ?
+    { typeof memorials === 'string' ? <Fragment>
+      <div className='tc'>
+      <h1>Some error occurred while fetching the data</h1>
+      </div>
+      </Fragment> :
+     ( !memorials.length ?
       <Fragment>
       <div className='tc'>
       <h1>Loading</h1>
@@ -115,9 +116,14 @@ const App = () => {
           </Scroll>
         </div>
         </Fragment>
-      )}
+      ))
+       }
       </Fragment>
       );
 }
 
-export default App;
+const mapStateToProps = state => ({
+  memorials: state.data.data
+})
+
+export default connect(mapStateToProps,{getData})(App);
