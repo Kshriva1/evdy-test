@@ -1,3 +1,3 @@
 **EVDY-TEST**
 
-- It was awesome
+#GETTING STARTED#
