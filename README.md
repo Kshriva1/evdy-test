@@ -16,7 +16,7 @@ To start the application:
 
 - The request to the API is made in the redux action which is called in the useEffect hook in the App component. UseState hook is used to maintain the component level state.
 
-- Axios package is used to make a GET request to the api. 
+- Axios package is used to make a GET request to the API. 
 
 - particles.js package is used for the background design in the UI.
 
