@@ -16,6 +16,10 @@ To start the application:
 
 - The request to the API is made in the redux action which is called in the useEffect hook in the App component. UseState hook is used to maintain the component level state.
 
+- Axios package is used to make a GET request to the api. 
+
+- particles.js package is used for the background design in the UI.
+
 - This application uses tachyons which is a CSS toolkit and is fast, readable and completely responsive. It reduces the amount of CSS we write in our application and we can add styles in our components using just class names.
 
 - If the first, middle or last name is undefined then it has been replaced by a empty string.
