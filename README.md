@@ -3,6 +3,7 @@
 # Getting Started #
 
 The application can be viewed here https://boiling-tundra-93571.herokuapp.com/
+
 To start the application:
 
 - clone this repository
