@@ -1,6 +1,6 @@
 # Getting Started #
 
-The application can be viewed here https://salty-savannah-97492.herokuapp.com
+The application can be viewed here  https://radiant-journey-31169.herokuapp.com
 
 To start the application:
 
