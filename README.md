@@ -1,7 +1,5 @@
 # Getting Started #
 
-The application can be viewed here https://stormy-taiga-46081.herokuapp.com/
-
 To start the application:
 
 - clone this repository
