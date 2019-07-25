@@ -1,7 +1,6 @@
 import React, { Fragment,useEffect,useState} from 'react';
 import CardList from './components/Cards/CardList';
 import Scroll from './components/Scroll/Scroll';
-import SearchBox from './components/SearchBox/SearchBox';
 import Particles from 'react-particles-js';
 import Logo from './components/Logo/Logo';
 import { Button } from 'reactstrap';
@@ -51,23 +50,21 @@ const App = ({memorials,getData}) => {
  
   const [sortType, setSortType] = useState('date');
 
-  const [searchBoxValue,setSearchBoxValue] = useState('');
-
    useEffect(() => {
     getData();
   },[getData])
 
  /* function to sort the memorials by creation date */
-  const sortByCreationDate = (newMemorials) => {
-      newMemorials.sort(compareValuesByDate);
-      return newMemorials
+  const sortByCreationDate = (memorials) => {
+      memorials.sort(compareValuesByDate);
+      return memorials
   }
 
 /* function to sort the memorials by Last Name */
   const sortByLastName = (newMemorials) => {
       newMemorials.sort(compareValuesByLastName);
-      console.log(newMemorials);
-      return newMemorials
+      console.log(memorials);
+      return memorials
   }
   
   const compareValuesByDate = (a,b) => {
@@ -92,19 +89,6 @@ const App = ({memorials,getData}) => {
 
   const changeOrder = () => {
      setSortType('lastName')
-  }
-
-  const searchBoxChange = (e) => {
-       setSearchBoxValue(e.target.value);
-  }
-
-/* Function to get filtered memorials depending on the value in the search box */
-  const getFilteredMemorials = () => {
-    const filteredMemorials = memorials.filter(memorial => {
-      return new Date(memorial.creationDate).toLocaleDateString("en-US")
-      .includes(searchBoxValue)
-    })
-     return filteredMemorials;
   }
 
     return (
@@ -133,11 +117,10 @@ const App = ({memorials,getData}) => {
       (<Fragment>
         <div className='tc'>
           <Button className='ma2' color="primary" onClick={e=>changeOrder()}>Sort By Last Name</Button>{' '}
-          <SearchBox searchBoxChange={searchBoxChange} />
           <Scroll>
             {
-              sortType === 'date' ? <CardList memorials={sortByCreationDate(getFilteredMemorials())} /> : 
-              <CardList memorials={sortByLastName(getFilteredMemorials())} />
+              sortType === 'date' ? <CardList memorials={sortByCreationDate(memorials)} /> : 
+              <CardList memorials={sortByLastName(memorials)} />
             }
           </Scroll>
         </div>
