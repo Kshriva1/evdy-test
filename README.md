@@ -1,6 +1,6 @@
 # Getting Started #
 
-The application can be viewed here  https://safe-hamlet-93839.herokuapp.com
+The application can be viewed here https://stormy-taiga-46081.herokuapp.com/
 
 To start the application:
 
@@ -19,8 +19,6 @@ To start the application:
 - Axios package is used to make a GET request to the API. 
 
 - The unix dates fetched from the API are converted into M/D/YYYY HH:mm:ss format in the UI.
-
-- The memorials can be searched using date in the format M/D/YYYY in the searchbox. Only those memorials whose dates match with that entered in the searchbox will be displayed.
 
 - Particles.js package is used for the background design in the UI.
 
