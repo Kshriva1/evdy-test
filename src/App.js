@@ -1,9 +1,9 @@
 import React, { Fragment,useEffect,useState} from 'react';
-import CardList from './components/cards/CardList';
-import Scroll from './components/scroll/Scroll';
-import SearchBox from './components/searchbox/SearchBox';
+import CardList from './components/Cards/CardList';
+import Scroll from './components/Scroll/Scroll';
+import SearchBox from './components/SearchBox/SearchBox';
 import Particles from 'react-particles-js';
-import Logo from './components/logo/Logo';
+import Logo from './components/Logo/Logo';
 import { Button } from 'reactstrap';
 import { connect } from 'react-redux';
 import { getData } from './actions/data';
