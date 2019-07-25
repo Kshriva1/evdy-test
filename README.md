@@ -1,6 +1,6 @@
 # Getting Started #
 
-The application can be viewed here  https://radiant-journey-31169.herokuapp.com
+The application can be viewed here  https://safe-hamlet-93839.herokuapp.com
 
 To start the application:
 
@@ -18,7 +18,11 @@ To start the application:
 
 - Axios package is used to make a GET request to the API. 
 
-- particles.js package is used for the background design in the UI.
+- The unix dates fetched from the API are converted into M/D/YYYY HH:mm:ss format in the UI.
+
+- The memorials can be searched using date in the format M/D/YYYY in the searchbox. Only those memorials whose dates match with that entered in the searchbox will be displayed.
+
+- Particles.js package is used for the background design in the UI.
 
 - This application uses tachyons which is a CSS toolkit and is fast, readable and completely responsive. It reduces the amount of CSS we write in our application and we can add styles in our components using just class names.
 
