@@ -61,9 +61,8 @@ const App = ({memorials,getData}) => {
   }
 
 /* function to sort the memorials by Last Name */
-  const sortByLastName = (newMemorials) => {
-      newMemorials.sort(compareValuesByLastName);
-      console.log(memorials);
+  const sortByLastName = (memorials) => {
+      memorials.sort(compareValuesByLastName);
       return memorials
   }
   
