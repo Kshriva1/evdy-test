@@ -1,3 +1,5 @@
+/* This component provides a logo at the top which is tiltable when hovered */
+
 import React,{Fragment} from 'react';
 import Tilt from 'react-tilt'
 import './Logo.css'

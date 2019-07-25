@@ -1,3 +1,5 @@
+/* reducer which compares the action type and returns the state */
+
 import {GET_DATA,DATA_ERROR} from '../actions/types';
 
 const initialState = {

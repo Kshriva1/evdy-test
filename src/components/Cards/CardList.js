@@ -1,3 +1,5 @@
+/* This component provides each seperate memorial to the CardList component which displays it as a card */
+
 import React,{Fragment} from 'react';
 import Card from './Card';
 

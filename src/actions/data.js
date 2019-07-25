@@ -1,3 +1,5 @@
+/* action dispatched from the App component to fetch data from the API. */
+
 import axios from 'axios';
 import {GET_DATA,DATA_ERROR} from './types';
 
@@ -15,7 +17,7 @@ export const getData = () => async dispatch => {
 		dispatch({
           type: DATA_ERROR,
           payload: 'ERROR FETCHING THE DATA'
-    });
+       });
 
 	}
 }
