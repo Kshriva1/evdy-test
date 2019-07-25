@@ -58,15 +58,16 @@ const App = ({memorials,getData}) => {
   },[getData])
 
  /* function to sort the memorials by creation date */
-  const sortByCreationDate = (memorials) => {
-      memorials.sort(compareValuesByDate);
-      return memorials
+  const sortByCreationDate = (newMemorials) => {
+      newMemorials.sort(compareValuesByDate);
+      return newMemorials
   }
 
 /* function to sort the memorials by Last Name */
-  const sortByLastName = (memorials) => {
-      memorials.sort(compareValuesByLastName);
-      return memorials
+  const sortByLastName = (newMemorials) => {
+      newMemorials.sort(compareValuesByLastName);
+      console.log(newMemorials);
+      return newMemorials
   }
   
   const compareValuesByDate = (a,b) => {

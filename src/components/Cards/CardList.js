@@ -4,6 +4,7 @@ import React,{Fragment} from 'react';
 import Card from './Card';
 
 const CardList = ({ memorials }) => {
+  console.log(memorials);
   return (
     <Fragment>
       {
